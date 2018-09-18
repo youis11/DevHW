@@ -28,7 +28,7 @@ public:
 		z = 0;
 	}
 
-	//Operators + , -, +=, -=, =, ==	const vec3 operator - (const vec3 &vec) const
+	//Operators + , -, +=, -=, =, ==	/*const vec3 operator - (const vec3 &vec) const
 	{ 
 		return vec3(x - vec.x, y - vec.y, z - vec.z); 
 	}
@@ -48,7 +48,7 @@ public:
 		return vec3(x -= vec.x, y -= vec.y, z -= vec.z);
 	}
 
-	bool vec3 operator ==(const vec3 &vec) const
+	bool vec3 operator==(const vec3 &vec) const
 	{
 		bool ret = true;
 		if (x != vec.x)
@@ -58,7 +58,40 @@ public:
 		if (y != v.y)
 			ret = false;
 		return ret;
+	}*/
+
+	//methods
+	void normalize()
+	{
+	using namespace std;
+	int l = 1.0 / sqrt(x*x + y * y + z * z);
+	x *= l; 
+	y *= l; 
+	z *= l;
 	}
 
+	void zero() 
+	{
+		x = 0;
+		y = 0;
+		z = 0;
+	}
+
+	bool is_zero() {
+		bool ret = true;
+		if (x != 0)
+			ret = false;
+		if (y != 0)
+			ret = false;
+		if (z != 0)
+			ret = false;
+		return ret;
+	}
+
+	type distance_to(vec3 v) const
+	{ 
+		vec3 vec = v - this;
+		return sqrt(x*x + y * y + z * z); 
+	}
 
 };
