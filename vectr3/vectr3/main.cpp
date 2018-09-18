@@ -27,4 +27,38 @@ public:
 		2y = db;
 		z = 0;
 	}
+
+	//Operators + , -, +=, -=, =, ==	const vec3 operator - (const vec3 &vec) const
+	{ 
+		return vec3(x - vec.x, y - vec.y, z - vec.z); 
+	}
+
+	const vec3 operator + (const vec3 &vec) const
+	{ 
+		return vec3(x + vec.x, y + vec.y, z + vec.z); 
+	}
+
+	const vec3 operator += (const vec3 &vec) const
+	{
+		return vec3(x += vec.x, y += vec.y, z += vec.z);
+	}
+
+	const vec3 operator -= (const vec3 &vec) const
+	{
+		return vec3(x -= vec.x, y -= vec.y, z -= vec.z);
+	}
+
+	bool vec3 operator ==(const vec3 &vec) const
+	{
+		bool ret = true;
+		if (x != vec.x)
+			ret = false;
+		if (y != v.y)
+			ret = false;
+		if (y != v.y)
+			ret = false;
+		return ret;
+	}
+
+
 };
