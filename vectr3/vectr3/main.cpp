@@ -28,22 +28,23 @@ public:
 		z = 0;
 	}
 
-	//Operators + , -, +=, -=, =, ==	/*const vec3 operator - (const vec3 &vec) const
+	//Operators + , -, +=, -=, =, ==
+	vec3 operator - (const vec3 &vec) const
 	{ 
 		return vec3(x - vec.x, y - vec.y, z - vec.z); 
 	}
 
-	const vec3 operator + (const vec3 &vec) const
+	vec3 operator + (const vec3 &vec) const
 	{ 
 		return vec3(x + vec.x, y + vec.y, z + vec.z); 
 	}
 
-	const vec3 operator += (const vec3 &vec) const
+	vec3 operator += (const vec3 &vec)
 	{
 		return vec3(x += vec.x, y += vec.y, z += vec.z);
 	}
 
-	const vec3 operator -= (const vec3 &vec) const
+	vec3 operator -= (const vec3 &vec)
 	{
 		return vec3(x -= vec.x, y -= vec.y, z -= vec.z);
 	}
@@ -58,12 +59,11 @@ public:
 		if (y != v.y)
 			ret = false;
 		return ret;
-	}*/
+	}
 
 	//methods
 	void normalize()
 	{
-	using namespace std;
 	int l = 1.0 / sqrt(x*x + y * y + z * z);
 	x *= l; 
 	y *= l; 
