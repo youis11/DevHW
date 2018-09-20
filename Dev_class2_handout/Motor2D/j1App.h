@@ -81,10 +81,14 @@ private:
 	// a xml_node to read specific branches of the xml
 
 	pugi::xml_document  config_file;
-	pugi::xml_node		read_config;
 
 	int					argc;
 	char**				args;
+
+public:
+	pugi::xml_node		read_config;
+
+
 };
 
 extern j1App* App; 

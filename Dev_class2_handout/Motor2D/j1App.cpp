@@ -62,13 +62,8 @@ bool j1App::Awake()
 	// created in the last TODO
 
 	config_file.load_file("config.xml");
-	/*pugi::xml_parse_result result = config_file.load_file("config.xml",
-		pugi::parse_default | pugi::parse_declaration);
-	if (!result)
-	{
-		std::<< "Parse error: " << result.description()
-			<< ", character pos= " << result.offset;
-	}*/
+
+	read_config = config_file.first_child();
 
 	bool ret = true;
 
