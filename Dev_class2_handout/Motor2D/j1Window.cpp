@@ -37,8 +37,16 @@ bool j1Window::Awake()
 		width = WIDTH;
 		height = HEIGHT;
 		scale = SCALE;
+		//width = App->read_config.child("resolution").attribute("width").as_int();//WITDH
+		//height = App->read_config.child("resolution").attribute("height").as_int();;
+		//scale = App->read_config.child("resolution").attribute("scale").as_int(1);;
 
-		if(FULLSCREEN)
+		/*bool fullscreen = App->read_config.child("fullscreen").attribute("value").as_bool();
+		bool borderless = App->read_config.child("borderless").attribute("value").as_bool();
+		bool resizable = App->read_config.child("resizable").attribute("value").as_bool();
+		bool fullscreen_window = App->read_config.child("fullscreen_window").attribute("value").as_bool();*/
+
+		if(FULLSCREEN)//Fullscreen
 		{
 			flags |= SDL_WINDOW_FULLSCREEN;
 		}
@@ -73,7 +81,7 @@ bool j1Window::Awake()
 			// TODO 4: Read the title of the app from the XML
 			// and set directly the window title using SetTitle()
 
-			SetTitle(App->read_config.child("name").child_value());
+			App->win->SetTitle(App->read_config.child("name").child_value());
 
 		}
 	}

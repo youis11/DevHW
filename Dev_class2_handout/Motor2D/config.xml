@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Config file for the game -->
+<config>
+  <app>
+    <name>My not so awesome game with XML</name>
+    <organization>UPC</organization>
+  </app>
+
+  <renderer>
+    <vsync value="true"/>
+  </renderer>
+
+  <window>
+    <resolution width="1024" height="768" scale="1"/>
+    <fullscreen value="false"/>
+    <borderless value="false"/>
+    <resizable value="false"/>
+    <fullscreen_window value="false"/>
+  </window>
+
+  <textures>
+  </textures>
+
+  <input>
+    <num_keys value="352"/>
+    <num_mouse_buttons value="5"/>
+    <last_keys_pressed_buffer value="50"/>
+  </input>
+
+  <audio>
+    <default_music_fade_time value="2.0"/>
+  </audio>
+  
+</config>
