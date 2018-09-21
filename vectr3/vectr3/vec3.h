@@ -52,16 +52,24 @@ public:
 		return vec3(x -= vec.x, y -= vec.y, z -= vec.z);
 	}
 
+	vec3 operator = (const vec3 vec)
+	{
+		return vec3(x = vec.x, y = vec.y, z = vec.z);
+	}
+
 	bool vec3 operator==(const vec3 &vec) const
 	{
-		bool ret = true;
+		
+		return(x == vec.x && y == vec.y && z == vec.z);
+
+		/*bool ret = true;
 		if (x != vec.x)
 			ret = false;
 		if (y != v.y)
 			ret = false;
 		if (y != v.y)
 			ret = false;
-		return ret;
+		return ret;*/
 	}
 
 	//methods
@@ -91,7 +99,7 @@ public:
 		return ret;
 	}
 
-	type distance_to(vec3 v) const
+	(type) distance_to(vec3 v) const
 	{
 		vec3 vec = v - this;
 		return sqrt(x*x + y * y + z * z);
