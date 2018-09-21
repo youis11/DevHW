@@ -1,6 +1,8 @@
-#pragma once
+#ifndef VEC3
 #include <math.h>
 #include <iostream>
+
+#defime VEC3
 
 template <class type>
 
@@ -95,4 +97,8 @@ public:
 		return sqrt(x*x + y * y + z * z);
 	}
 
-}; 
+};
+
+
+#endif // !VEC3
+
