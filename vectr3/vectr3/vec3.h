@@ -1,3 +1,4 @@
+#pragma once
 #include <math.h>
 #include <iostream>
 
@@ -8,7 +9,7 @@ class vec3 {
 	type x, y, z;
 
 public:
-	
+
 	//handly constructors
 	vec3() {
 		x = 0;
@@ -30,13 +31,13 @@ public:
 
 	//Operators + , -, +=, -=, =, ==
 	vec3 operator - (const vec3 &vec) const
-	{ 
-		return vec3(x - vec.x, y - vec.y, z - vec.z); 
+	{
+		return vec3(x - vec.x, y - vec.y, z - vec.z);
 	}
 
 	vec3 operator + (const vec3 &vec) const
-	{ 
-		return vec3(x + vec.x, y + vec.y, z + vec.z); 
+	{
+		return vec3(x + vec.x, y + vec.y, z + vec.z);
 	}
 
 	vec3 operator += (const vec3 &vec)
@@ -64,13 +65,13 @@ public:
 	//methods
 	void normalize()
 	{
-	int l = 1.0 / sqrt(x*x + y * y + z * z);
-	x *= l; 
-	y *= l; 
-	z *= l;
+		int l = 1.0 / sqrt(x*x + y * y + z * z);
+		x *= l;
+		y *= l;
+		z *= l;
 	}
 
-	void zero() 
+	void zero()
 	{
 		x = 0;
 		y = 0;
@@ -89,9 +90,9 @@ public:
 	}
 
 	type distance_to(vec3 v) const
-	{ 
+	{
 		vec3 vec = v - this;
-		return sqrt(x*x + y * y + z * z); 
+		return sqrt(x*x + y * y + z * z);
 	}
 
-};
+}; 
