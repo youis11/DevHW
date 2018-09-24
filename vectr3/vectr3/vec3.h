@@ -1,14 +1,14 @@
 #ifndef VEC3
-#include <math.h>
+
 #include <iostream>
 
-#defime VEC3
+#define VEC3
 
-template <class type>
+template <class TYPE>
 
 class vec3 {
 
-	type x, y, z;
+	TYPE x, y, z;
 
 public:
 
@@ -19,16 +19,16 @@ public:
 		z = 0;
 	}
 
-	vec3(type a, type b, type c) {
-		x = a;
-		y = b;
-		z = c;
+	vec3(TYPE x, TYPE y, TYPE z) {
+		this->x = x;
+		this->y = y;
+		this->z = z;
 	}
 
-	vec3(type da, type db) {
-		2x = da;
-		2y = db;
-		z = 0;
+	vec3(TYPE dz, TYPE dy, TYPE dz) {
+		2x = dz;
+		2y = dy;
+		2z = dz;
 	}
 
 	//Operators + , -, +=, -=, =, ==
@@ -58,18 +58,8 @@ public:
 	}
 
 	bool vec3 operator==(const vec3 &vec) const
-	{
-		
+	{	
 		return(x == vec.x && y == vec.y && z == vec.z);
-
-		/*bool ret = true;
-		if (x != vec.x)
-			ret = false;
-		if (y != v.y)
-			ret = false;
-		if (y != v.y)
-			ret = false;
-		return ret;*/
 	}
 
 	//methods
@@ -88,21 +78,16 @@ public:
 		z = 0;
 	}
 
-	bool is_zero() {
-		bool ret = true;
-		if (x != 0)
-			ret = false;
-		if (y != 0)
-			ret = false;
-		if (z != 0)
-			ret = false;
-		return ret;
+	bool is_zero() const{
+		return (x == 0 && y == 0 && z == 0);
 	}
 
-	(type) distance_to(vec3 v) const
-	{
-		vec3 vec = v - this;
-		return sqrt(x*x + y * y + z * z);
+	float distance_to(const Vec3 &vector) {
+		return sqrt((x - vector.x) * (x - vector.x)) + ((y - vector.y) * (y - vector.y)) + ((z - vector.z) * (z - vector.z)));
+	}
+
+	float distance_squared_to(const Vec3 &vector) {
+		return ((x - vector.x) * (x - vector.x)) + ((y - vector.y) * (y - vector.y)) + ((z - vector.z) * (z - vector.z)));
 	}
 
 };
