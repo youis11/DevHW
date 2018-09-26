@@ -49,6 +49,11 @@ public:
 	// will one execute by the very end of the frame
 	// Load / Save
 
+	//void Save();
+	//void Load() const;
+	bool LoadDoc(const char* path) const;
+	bool SaveState() const;
+
 private:
 
 	// Load config file
@@ -79,12 +84,17 @@ public:
 	j1Audio*			audio;
 	j1Scene*			scene;
 
+	// Save and Load
+	bool save_app;
+	bool load_app;
+
 private:
 
 	p2List<j1Module*>	modules;
 	uint				frames;
 	float				dt;
-	pugi::xml_document	config_file;
+
+    pugi::xml_document	config_file;
 	pugi::xml_node		config;
 	pugi::xml_node		app_config;
 	int					argc;

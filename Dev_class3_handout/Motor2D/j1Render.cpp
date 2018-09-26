@@ -89,9 +89,27 @@ bool j1Render::CleanUp()
 
 // TODO 6: Create a method to load the state
 // for now it will be camera's x and y
+bool j1Render::Load(const pugi::xml_node& load_node)
+{
+	if (load_node == NULL) return true;
+	camera.x = load_node.child("camera").attribute("x").as_int();
+	camera.y = load_node.child("camera").attribute("y").as_int();
+}
 
 // TODO 8: Create a method to save the state of the renderer
 // using append_child and append_attribute
+
+pugi::xml_node j1Render::Save()
+{
+	pugi::xml_node module_node;
+	module_node.set_name(name.GetString());
+
+	module_node.append_child("camera").append_attribute("x").set_value(camera.x);
+	module_node.child("camera").append_attribute("y").set_value(camera.y);
+
+	return module_node;
+}
+
 
 void j1Render::SetBackgroundColor(SDL_Color color)
 {
