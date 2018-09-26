@@ -2,25 +2,37 @@
 
 #define _STRING
 
-//string a;
-//string b(a);
-//string c("hello");
-//
-//if (a == "")-->true
-//
-//b = "bye"
-
-class string 
+class STRING 
 {
 
 public:
-	char a;
+	char* text;
 
-	string() {
-		a = 0;
-
+	STRING() {}
+	
+	STRING(const STRING &otherString) {
+		text = otherString.text;
 	}
 
+	STRING(const char* text) {
+		this->text = (char*)text;
+	}
+
+	STRING operator= (const STRING &otherString) {
+		return text = otherString.text;
+	}
+
+	STRING operator= (const char* otherText) {
+		 return text = (char*)otherText;
+	}
+
+	bool operator== (const STRING &otherString) const {
+		return(text == otherString.text);
+	}
+
+	bool operator== (const char* otherText) const {
+		return(text == otherText);
+	}
 };
 
 
